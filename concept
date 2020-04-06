@@ -1,8 +1,16 @@
-1、k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥
+1、容器和pod
+k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥
 组和单的关系。
 pod是一组docker容器的集合。
+参考:
+https://blog.51cto.com/cloumn/blog/1596
 
-2、
+2、linux文件系统
+典型的Linux文件系统由bootfs和rootfs两部分组成，bootfs(boot file system)主要包含 bootloader和kernel，
+bootloader主要是引导加载kernel，当kernel被加载到内存中后 bootfs就被umount了。
+rootfs (root file system) 包含的就是典型Linux系统中的/dev，/proc，/bin，/etc等标准目录和文件。
+参考:
+http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicemapper
 
 3、
 
