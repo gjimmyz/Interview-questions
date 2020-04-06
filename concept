@@ -12,7 +12,9 @@ rootfs (root file system) 包含的就是典型Linux系统中的/dev，/proc，/
 参考:
 http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicemapper
 
-3、
+3、linux中vim编辑保存后inode会发生变化嘛?
+vim 编辑保存文件的时候，会将文件内容写入到一个新的文件中，保存好后，删除掉原来的文件，并将新文件重命名，从而完成保存的操作。
+外表看起来没变化 但inode确实变化了。
 
 4、
 
