@@ -29,7 +29,8 @@ Bridge设备实例可以和Linux上其他网络设备实例连接，既attach一
 参考:
 https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
-6、
+6、Docker端口映射
+主要用到的是iptables的nat和filter表。
 
 7、
 
