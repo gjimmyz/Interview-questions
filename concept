@@ -16,9 +16,18 @@ http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicem
 vim 编辑保存文件的时候，会将文件内容写入到一个新的文件中，保存好后，删除掉原来的文件，并将新文件重命名，从而完成保存的操作。
 外表看起来没变化 但inode确实变化了。
 
-4、
+4、Linux用户想要使用网络功能
+不能通过直接操作硬件完成，而需要直接或间接的操作一个Linux为我们抽象出来的设备，既通用的Linux网络设备来完成。
+一个常见的情况是，系统里装有一个硬件网卡，Linux会在系统里为其生成一个网络设备实例，如eth0，用户需要对eth0发出命令以配置或使用它了。
+参考:
+https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
-5、
+5、Bridge(桥)是什么
+Bridge(桥)是Linux上用来做TCP/IP二层协议交换的设备，与现实世界中的交换机功能相似。
+Bridge设备实例可以和Linux上其他网络设备实例连接，既attach一个从设备，类似于在现实世界中的交换机和一个用户终端之间连接一根网线。
+当有数据到达时，Bridge会根据报文中的MAC信息进行广播、转发、丢弃处理。
+参考:
+https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
 6、
 
