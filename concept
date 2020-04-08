@@ -33,7 +33,8 @@ https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 主要用到的是iptables的nat和filter表。
 也就是说在docker启动的时候不加-p 也可以通过配置iptables来端口映射。
 
-7、
+7、平时一般去那里搜索技术文章?
+google bing stackoverflow segmentfault等等。
 
 8、
 
