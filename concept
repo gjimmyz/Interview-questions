@@ -62,7 +62,14 @@ Serlvet: 全称Java Servlet,是用Java编写的服务器端程序。而这些Ser
 https://www.jianshu.com/p/12f7fddcd0f2
 https://www.ibm.com/developerworks/cn/java/j-lo-servlet/
 
-11、
+11、ansible各个组件
+1、ansible            主程序
+2、connection plugins 主机和节点之间通信
+3、host inventory     主机清单 也就是配置主机地方
+4、core modules       核心模块 自定义模块等等
+5、custom modules     自定义模块
+6、plugins            使用插件来完成记录日志 邮件等其它功能
+7、playbooks          执行复杂任务 还有个ad-hoc执行简单任务
 
 
 12、
