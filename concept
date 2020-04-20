@@ -71,8 +71,13 @@ https://www.ibm.com/developerworks/cn/java/j-lo-servlet/
 6)plugins            使用插件来完成记录日志 邮件等其它功能
 7)playbooks          执行复杂任务 还有个ad-hoc执行简单任务
 
-12、
-
+12、nginx cpu mem的关系 也就是用多大的CPU和多大的内存
+nginx作为反向代理服务器的时候 客户端2个(80 443)  服务端2个(80 443)
+max_clients = worker_processes * worker_connections/4
+worker_processes和cpu相关
+worker_connections内存 file-max nofile noproc
+file-max ≈ 内存大小/10K
+最终得出结论 建议4核(4线程)8G内存能充分利用1台机器资源
 
 13、
 
