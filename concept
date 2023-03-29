@@ -1,11 +1,12 @@
-1、容器和pod
-k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥
+1、k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥?
+答:
 组和单的关系。
 pod是一组docker容器的集合。
 参考:
 https://blog.51cto.com/cloumn/blog/1596
 
 2、linux文件系统
+答:
 典型的Linux文件系统由bootfs和rootfs两部分组成，bootfs(boot file system)主要包含 bootloader和kernel，
 bootloader主要是引导加载kernel，当kernel被加载到内存中后 bootfs就被umount了。
 rootfs (root file system) 包含的就是典型Linux系统中的/dev，/proc，/bin，/etc等标准目录和文件。
@@ -13,16 +14,19 @@ rootfs (root file system) 包含的就是典型Linux系统中的/dev，/proc，/
 http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicemapper
 
 3、linux中vim编辑保存后inode会发生变化嘛?
-vim 编辑保存文件的时候，会将文件内容写入到一个新的文件中，保存好后，删除掉原来的文件，并将新文件重命名，从而完成保存的操作。
+答:
+vim编辑保存文件的时候，会将文件内容写入到一个新的文件中，保存好后，删除掉原来的文件，并将新文件重命名，从而完成保存的操作。
 外表看起来没变化 但inode确实变化了。
 
 4、Linux用户想要使用网络功能
+答:
 不能通过直接操作硬件完成，而需要直接或间接的操作一个Linux为我们抽象出来的设备，既通用的Linux网络设备来完成。
 一个常见的情况是，系统里装有一个硬件网卡，Linux会在系统里为其生成一个网络设备实例，如eth0，用户需要对eth0发出命令以配置或使用它了。
 参考:
 https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
 5、Bridge(桥)是什么
+答:
 Bridge(桥)是Linux上用来做TCP/IP二层协议交换的设备，与现实世界中的交换机功能相似。
 Bridge设备实例可以和Linux上其他网络设备实例连接，既attach一个从设备，类似于在现实世界中的交换机和一个用户终端之间连接一根网线。
 当有数据到达时，Bridge会根据报文中的MAC信息进行广播、转发、丢弃处理。
@@ -30,13 +34,16 @@ Bridge设备实例可以和Linux上其他网络设备实例连接，既attach一
 https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
 6、Docker端口映射
+答:
 主要用到的是iptables的nat和filter表。
 也就是说在docker启动的时候不加-p 也可以通过配置iptables来端口映射。
 
 7、平时一般去那里搜索技术文章?
+答:
 google bing stackoverflow segmentfault等等。
 
 8、nginx java
+答:
 Nginx在配合Java应用服务器方面，耦合度很低，它只能通过自身的反向代理功能来实现与Java应用服务器的支持。
 但这恰恰是Nginx的一个优点，耦合度的降低，可以使Nginx与Java服务器的相互影响降到最低。
 耦合方式:
@@ -46,6 +53,7 @@ Nginx在配合Java应用服务器方面，耦合度很低，它只能通过自�
 高性能Linux服务器构建实战
 
 9、servlet是什么?
+答:
 Servlet是用Java编写的Server端程序，它与协议和平台无关。 
 Servlet运行于Java－enabled Web Server中。 
 Java Servlet可以动态地扩展Server的能力，并采用请求－响应模式提供Web服务。 
@@ -54,6 +62,7 @@ Java Servlet可以动态地扩展Server的能力，并采用请求－响应模�
 Servlet的主要功能在于交互式地浏览和修改数据，生成动态Web内容。
 
 10、tomcat
+答:
 Tomcat: 是Servlet的容器,Servlet运行在Tomcat容器当中,Servlet容器有很多(tomcat,Jboss,jetty)等
 JSP: 全称Java Server Pages，是一种动态网页开发技术。它使用JSP标签在HTML网页中插入Java代码。标签通常以<%开头以%>结束。
 Serlvet: 全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要实现Servlet这个接口。
@@ -63,6 +72,7 @@ https://www.jianshu.com/p/12f7fddcd0f2
 https://www.ibm.com/developerworks/cn/java/j-lo-servlet/
 
 11、ansible各个组件
+答:
 1)ansible            主程序
 2)connection plugins 主机和节点之间通信
 3)host inventory     主机清单 也就是配置主机地方
@@ -72,6 +82,7 @@ https://www.ibm.com/developerworks/cn/java/j-lo-servlet/
 7)playbooks          执行复杂任务 还有个ad-hoc执行简单任务
 
 12、nginx cpu mem的关系 也就是用多大的CPU和多大的内存
+答:
 nginx作为反向代理服务器的时候 客户端2个(80 443)  服务端2个(80 443)
 max_clients = worker_processes * worker_connections/4
 worker_processes和cpu相关
