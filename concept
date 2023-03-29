@@ -5,11 +5,11 @@ pod是一组docker容器的集合。
 参考:
 https://blog.51cto.com/cloumn/blog/1596
 
-2、linux文件系统
+2、什么是linux文件系统?
 答:
-典型的Linux文件系统由bootfs和rootfs两部分组成，bootfs(boot file system)主要包含 bootloader和kernel，
-bootloader主要是引导加载kernel，当kernel被加载到内存中后 bootfs就被umount了。
-rootfs (root file system) 包含的就是典型Linux系统中的/dev，/proc，/bin，/etc等标准目录和文件。
+典型的Linux文件系统由bootfs和rootfs两部分组成，bootfs(boot file system)主要包含bootloader和kernel，
+bootloader主要是引导加载kernel，当kernel被加载到内存中后bootfs就被umount了。
+rootfs(root file system)包含的就是典型Linux系统中的/dev，/proc，/bin，/etc等标准目录和文件。
 参考:
 http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicemapper
 
@@ -25,7 +25,7 @@ vim编辑保存文件的时候，会将文件内容写入到一个新的文件�
 参考:
 https://www.ibm.com/developerworks/cn/linux/1310_xiawc_networkdevice/index.html
 
-5、Bridge(桥)是什么
+5、Bridge(桥)是什么?
 答:
 Bridge(桥)是Linux上用来做TCP/IP二层协议交换的设备，与现实世界中的交换机功能相似。
 Bridge设备实例可以和Linux上其他网络设备实例连接，既attach一个从设备，类似于在现实世界中的交换机和一个用户终端之间连接一根网线。
