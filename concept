@@ -90,8 +90,17 @@ worker_connections内存 file-max nofile noproc
 file-max ≈ 内存大小/10K
 最终得出结论 建议4核(4线程)8G内存能充分利用1台机器资源
 
-13、
-
+13、exec命令的三个场景使用
+exec这个命令通常用的比较少 但还是要了解下哈
+1)调用并执行指定的命令
+重置root密码的会用到
+exec /sbin/init
+这个时候再执行init的时候什么不需要加参数呢 因为是执行/sbin/init的本身程序 程序还没起来。。哪里来init命令呢。
+2)重定向     一般用在shell里
+exec 1>$logfile
+exec 2>$logfile
+3)可以和find结合使用
+find . -type f -exec ls -l {} \;
 
 14、
 
