@@ -1,15 +1,12 @@
 1、k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥?
 答:
-Kubernetes的Pod就像是公司里的一个团队，由多个成员（容器）共同完成一项任务。
-而Docker中的Container则类似于公司里的一个单打独斗的员工，只负责完成自己的任务。Pod可以协调和分配资源，使容器之间更好地合作。
+Kubernetes的Pod就像是一辆公交车，由多个乘客（容器）共同完成一项任务，它们共享同一个环境和资源。
+而Docker中的Container则类似于一辆出租车，只能容纳一个乘客（容器），在运行时是相对独立的。Pod可以协调和分配资源，使容器之间更好地合作。
 
 2、什么是linux文件系统?
 答:
-典型的Linux文件系统由bootfs和rootfs两部分组成，bootfs(boot file system)主要包含bootloader和kernel，
-bootloader主要是引导加载kernel，当kernel被加载到内存中后bootfs就被umount了。
-rootfs(root file system)包含的就是典型Linux系统中的/dev，/proc，/bin，/etc等标准目录和文件。
-参考:
-http://www.infoq.com/cn/articles/analysis-of-docker-file-system-aufs-and-devicemapper
+Linux文件系统就像是一座图书馆，里面存放着计算机上各种类型的文件和目录，就像图书馆中的书一样。
+人们可以通过在目录树中寻找文件来查找和访问计算机中的数据，就像我们在图书馆中寻找书籍一样。
 
 3、linux中vim编辑保存后inode会发生变化嘛?
 答:
