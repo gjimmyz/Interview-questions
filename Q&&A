@@ -1,9 +1,6 @@
 1、k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥?
 答:
-组和单的关系。
-pod是一组docker容器的集合。
-参考:
-https://blog.51cto.com/cloumn/blog/1596
+就像一个便当盒和便当组合，Docker容器是食物，Kubernetes Pod是便当盒。Pod可以装许多个容器，共享辣酱或其他资源，并在配送时一起运送。
 
 2、什么是linux文件系统?
 答:
