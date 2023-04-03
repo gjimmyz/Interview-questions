@@ -93,34 +93,41 @@ Java Servlet是用Java编写的服务器端程序，它是JavaEE规范的一部�
 
 11、ansible各个组件
 答:
-1)ansible            主程序
-2)connection plugins 主机和节点之间通信
-3)host inventory     主机清单 也就是配置主机地方
-4)core modules       核心模块 自定义模块等等
-5)custom modules     自定义模块
-6)plugins            使用插件来完成记录日志 邮件等其它功能
-7)playbooks          执行复杂任务 还有个ad-hoc执行简单任务
+Ansible是一种自动化工具，用于配置和管理计算机环境。它采用基于SSH协议的无代理（agentless）架构，使用Python来实现主要功能，具有易学易用、快速部署、高效安全等特点。
+Ansible主要由以下几个组件组成：
+Ansible：主程序，用于管理和执行任务，提供命令行界面和API接口。
+Connection plugins：用于实现主机和节点之间的通信，支持SSH、WinRM、Docker等多种连接方式。
+Host inventory：主机清单，即需要管理的主机列表和相关配置信息，可以使用INI或YAML格式进行定义。
+Core modules：核心模块，包含了大量的内置模块，如文件操作、系统管理、网络管理等，同时也支持编写自定义模块。
+Custom modules：自定义模块，开发人员可以根据需求编写相应的模块，并与核心模块共同使用。
+Plugins：插件，用于增强Ansible功能，如记录日志、发送邮件、报告生成等。
+Playbooks：剧本，用于描述和执行复杂的任务，例如应用程序部署、配置管理等，同时也支持ad-hoc命令行执行简单任务。
+需要注意的是，Ansible还包括了一些高级功能，如变量管理、条件控制、模板渲染等，以及支持多种平台和资源类型的管理。
+同时，Ansible还可以与其它自动化工具，如Puppet、Chef、SaltStack等进行集成，从而实现更加强大的自动化管理能力。
 
 12、nginx cpu mem的关系 也就是用多大的CPU和多大的内存
 答:
-nginx作为反向代理服务器的时候 客户端2个(80 443)  服务端2个(80 443)
-max_clients = worker_processes * worker_connections/4
-worker_processes和cpu相关
-worker_connections内存 file-max nofile noproc
-file-max ≈ 内存大小/10K
-最终得出结论 建议4核(4线程)8G内存能充分利用1台机器资源
+Nginx在作为反向代理服务器时，其性能和资源消耗很大程度上取决于CPU和内存的配置。具体来说，可以从以下几个方面进行优化：
+Worker_processes：指定Nginx处理请求的进程数，通常建议设置与CPU核数相同或稍微多一些，以最大限度地利用CPU资源。
+Worker_connections：指定每个工作进程可以同时处理的连接数，通过调整这个参数可以控制Nginx的并发性和吞吐量。一般建议将其设置为1024或更高，以支持大量并发连接。
+Max_clients：是Nginx可以同时处理的最大客户端连接数，通常可以根据Worker_processes和Worker_connections进行计算得出。
+例如，如果设置了4个进程，每个进程处理1024个连接，则Max_clients应该设置为4*1024/4=1024。
+内存：Nginx的内存使用量会随着Worker_connections、Buffers等参数的调整而变化。
+此外，还需要注意Linux系统的文件句柄数（nofile）、进程数（noproc）和文件打开数（file-max）等系统限制，这些也会影响Nginx的性能和可靠性。
+一般建议将nofile和noproc设置为65535，file-max设置为内存大小/10KB左右。
+缓存：Nginx可以使用缓存来提高访问速度和性能，包括代理缓存、FastCGI缓存、静态文件缓存等。通过合理配置缓存参数，可以减少对后端服务器的请求频率，从而降低资源消耗和延迟。
+总体来说，建议将Nginx安装在4核（4线程）8GB内存的机器上，根据实际情况调整Worker_processes、Worker_connections、Max_clients等参数，
+同时进行系统的优化和调整，以达到最佳性能和稳定性。
 
 13、exec命令的三个场景使用
-exec这个命令通常用的比较少 但还是要了解下哈
-1)调用并执行指定的命令
-重置root密码的会用到
-exec /sbin/init
-这个时候再执行init的时候什么不需要加参数呢 因为是执行/sbin/init的本身程序 程序还没起来。。哪里来init命令呢。
-2)重定向     一般用在shell里
-exec 1>$logfile
-exec 2>$logfile
-3)可以和find结合使用
-find . -type f -exec ls -l {} \;
+Exec是一个Unix/Linux Shell内置命令，用于执行指定的命令或者重定向标准输入、输出和错误流。通常情况下，exec命令用得比较少，但是在某些场景下还是很有用的，例如：
+调用并执行指定的命令：可以使用exec命令来替换当前Shell进程，从而执行新的命令或程序。例如，在重置root密码时，可以使用exec /sbin/init命令来启动init进程，并且不需要加任何参数。
+重定向标准输入、输出和错误流：可以使用exec命令将标准输入、输出和错误流重定向到指定的文件或设备中。例如，exec 1>
+logfile和exec2>logfile命令将标准输出和错误流分别重定向到$logifle文件中，这样就可以方便地记录日志信息。
+和find结合使用：可以使用exec命令结合find命令来批量处理文件或目录。例如，find . -type f -exec ls -l {} ;命令将查找当前目录下所有的普通文件，
+并对每个文件执行ls -l命令，输出文件详细信息。
+需要注意的是，exec命令会覆盖当前Shell进程，因此可能会导致当前进程和环境变量的状态被改变。
+因此，在使用exec命令时需要谨慎，确保不会影响到其它进程和环境。同时，exec命令也可以用于Shell脚本和程序的编写中，从而实现更加高效和灵活的操作。
 
 14、
 
