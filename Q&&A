@@ -59,32 +59,37 @@ SegmentFault：这是中国最大的技术社区之一，汇聚了大量的技�
 
 8、nginx java
 答:
-Nginx在配合Java应用服务器方面，耦合度很低，它只能通过自身的反向代理功能来实现与Java应用服务器的支持。
-但这恰恰是Nginx的一个优点，耦合度的降低，可以使Nginx与Java服务器的相互影响降到最低。
-耦合方式:
-1)将静态页面请求交给Nginx，动态请求交给后端Tomcat处理。
-2)将所有请求都交给后端的Tomcat服务器处理，同时利用Nginx自身的负载均衡功能进行多台Tomcat服务器的负载均衡。
-参考:
-高性能Linux服务器构建实战
+在Java应用服务器和Nginx服务器之间配合时，通常采用反向代理和负载均衡的方式来实现高效、稳定的服务。具体来说，可以通过以下耦合方式：
+将静态资源（如HTML、CSS、JavaScript文件）交给Nginx来处理，动态请求则转发给Java应用服务器（例如Tomcat）进行处理。
+这种方式可以利用Nginx快速响应静态请求并减轻Java服务器的压力，同时保证动态请求的处理能力和灵活性。
+利用Nginx自身的负载均衡功能，将请求分发给多台Java应用服务器进行处理，从而提高系统的可用性和扩展性。
+同时，可以通过Nginx提供的健康检查和故障转移等机制，实现对Java服务器的优化和容错，避免单点故障和服务中断。
+需要注意的是，在使用Nginx反向代理时，需要进行相应的配置和调优，以确保请求的正确转发和响应。
+例如，需要设置upstream模块来定义后端服务器组，利用proxy_pass指令将请求转发到后端服务器上，并根据需求设置buffering、proxy_buffer_size等参数来优化转发效率。
+同时，还需要考虑安全性、缓存、日志等方面的问题，以确保系统的稳定性和安全性。
 
 9、servlet是什么?
 答:
-Servlet是用Java编写的Server端程序，它与协议和平台无关。 
-Servlet运行于Java－enabled Web Server中。 
-Java Servlet可以动态地扩展Server的能力，并采用请求－响应模式提供Web服务。 
-最早支持Servlet技术的是JavaSoft的Java Web Server。 
-此后，一些其它的基于Java的Web Server开始支持标准的Servlet API。 
-Servlet的主要功能在于交互式地浏览和修改数据，生成动态Web内容。
+Servlet是Java Web应用程序的核心组件之一，它是运行在Web服务器上的Java类，用于处理HTTP请求和响应。
+通常情况下，在Servlet容器启动时，会自动初始化Servlet并加载到内存中，从而提供对Web应用程序的支持。
+Servlet有许多优点，包括：
+跨平台性：Servlet是用Java编写的，并且与协议和平台无关，因此可以在不同的操作系统和Web服务器上运行。
+动态性：Servlet能够动态地生成Web内容，从而实现个性化和定制化的Web应用程序。
+高效性：Servlet容器将Servlet加载到内存中后，能够快速响应请求并处理业务逻辑，从而提高Web应用程序的性能和可靠性。
+可扩展性：Servlet容器支持Servlet API，并提供了许多扩展机制，如过滤器、监听器等，使得开发人员可以方便地扩展和定制Web应用程序。
+需要注意的是，Java Servlet是作为Java EE规范的一部分发布的，因此它必须遵循相关的规范和标准，以确保在不同的Servlet容器上具有一致性和互操作性。
+同时，Servlet也依赖于Java EE环境和Servlet容器的支持，因此需要了解和掌握相应的技术和工具。
 
 10、tomcat
 答:
-Tomcat: 是Servlet的容器,Servlet运行在Tomcat容器当中,Servlet容器有很多(tomcat,Jboss,jetty)等
-JSP: 全称Java Server Pages，是一种动态网页开发技术。它使用JSP标签在HTML网页中插入Java代码。标签通常以<%开头以%>结束。
-Serlvet: 全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要实现Servlet这个接口。
-其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。
-参考:
-https://www.jianshu.com/p/12f7fddcd0f2
-https://www.ibm.com/developerworks/cn/java/j-lo-servlet/
+Tomcat是一个常用的开源Servlet容器和Web服务器，它支持Java Servlet和JavaServer Pages（JSP）等Web应用程序技术，并提供了丰富的功能和插件，
+如连接池、安全性、负载均衡、SSL等。Tomcat是Apache组织的一个开源项目，目前最新的版本是Tomcat 10。
+JavaServer Pages（JSP）是一种动态网页技术，它允许开发人员将Java代码嵌入到HTML页面中，从而生成动态的Web内容。在JSP中，Java代码通常使用<%...%>标签来包含，
+也可以使用EL表达式和JSTL标签库实现更复杂的逻辑和操作。
+Java Servlet是用Java编写的服务器端程序，它是JavaEE规范的一部分，用于处理HTTP请求和响应。Servlet运行于Servlet容器中，
+例如Tomcat、Jetty、JBoss等，在接收到客户端的请求后，Servlet容器会调用相应的Servlet进行处理，并将结果返回给客户端。
+需要注意的是，Tomcat不仅是一个Servlet容器，还是一个Web服务器，具有独立的网络协议栈和线程模型，能够提供高性能的Web服务。
+同时，Tomcat也支持多个虚拟主机和多个Web应用程序，从而实现Web服务的多样化和扩展性。
 
 11、ansible各个组件
 答:
