@@ -1,28 +1,28 @@
 1、k8s的pod和docker里的container是一样的嘛 如果不一样 区别是啥?
 
-2、
+2、什么是linux文件系统?
 
-3、
+3、linux中vim编辑保存后inode会发生变化嘛?
 
-4、
+4、Linux用户想要使用网络功能
 
-5、
+5、Bridge(桥)是什么?
 
-6、
+6、Docker端口映射
 
-7、
+7、平时一般去那里搜索技术文章?
 
-8、
+8、nginx java
 
-9、
+9、servlet是什么?
 
-10、
+10、tomcat
 
-11、
+11、ansible各个组件
 
-12、
+12、nginx cpu mem的关系 也就是用多大的CPU和多大的内存
 
-13、
+13、exec命令的三个场景使用
 
 14、
 
