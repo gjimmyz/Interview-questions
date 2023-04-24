@@ -1,0 +1,22 @@
+公众号文章补充说明：
+1、
+1）cobbler3.2.2部署系统(支持uefi)
+https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484392&idx=1&sn=2011b257f6c8ef3900fd8fe9688c7e1c&chksm=c24ecac7f53943d1b43946d5eb8d549ca14d62dd8ce82f26a14aef5445879d8f823c0aeba83c&token=1205473399&lang=zh_CN#rd
+
+2）
+问：
+cobbler的dhcp分配ip,交换机提供中继，这样是否就可以在客户端拿到ip后，server可以ping通
+
+答：
+是的，如果你使用Cobbler进行DHCP分配IP地址，并且在网络中使用交换机提供中继，那么你可以在客户端拿到IP地址后进行ping操作，同时也可以从服务器端ping通客户端。
+当客户端通过DHCP向Cobbler服务器请求IP地址时，Cobbler会自动为客户端分配一个可用的IP地址。如果网络中使用交换机提供中继，则需要确保交换机正确地配置了VLAN和子网划分，并且能够正确转发数据包。
+一旦客户端获得了IP地址，就可以尝试ping服务器，如果服务器和客户端之间的网络连接是正常的，ping应该能够成功。同样地，如果服务器想要ping通客户端，也需要确保交换机正确地配置了VLAN和子网划分，这样服务器才能将数据包正确地发送到客户端所在的子网中。
+
+3）文章里少了启动
+systemctl start tftp
+
+2、
+
+3、
+
+4、
