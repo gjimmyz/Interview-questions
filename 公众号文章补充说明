@@ -53,3 +53,56 @@ part / --fstype=ext4 --grow --size=1
 3、
 
 4、
+
+
+[root@fedora autoinstall]# cat user-data
+#cloud-config
+autoinstall:
+  apt:
+    disable_components: []
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches:
+      - amd64
+      - i386
+      uri: https://mirrors.aliyun.com/ubuntu
+    - arches:
+      - default
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  user-data:
+    timezone: Asia/Shanghai
+    disable_root: true
+  identity:
+    hostname: scadmin
+    password: "$6$F.yyFLUL0xrVRsGE$oq52hWKYIZ9fsd1R.PeYpPHzxtXmeGt43hak.KfaeRfPHYh9y8JMf8lcqaJqqigcmLFREOIOpMq3j5tCBWlCt."
+    username: scadmin
+    realname: scadmin
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ''
+  locale: en_US.UTF-8
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: true
+  packages:
+    - net-tools
+  storage:
+    grub:
+      reorder_uefi: False
+    config:
+    - {ptable: gpt, path: /dev/sda, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sda}
+    - {device: disk-sda, size: 536870912, wipe: superblock, flag: boot, number: 1,
+      preserve: false, grub_device: true, type: partition, id: partition-0}
+    - {fstype: fat32, volume: partition-0, preserve: false, type: format, id: format-0}
+    - {device: disk-sda, size: -1, wipe: superblock, flag: '', number: 2,
+      preserve: false, type: partition, id: partition-1}
+    - {fstype: ext4, volume: partition-1, preserve: false, type: format, id: format-1}
+    - {device: format-1, path: /, type: mount, id: mount-1}
+    - {device: format-0, path: /boot/efi, type: mount, id: mount-0}
+  updates: security
+  version: 1
+[root@fedora autoinstall]#
