@@ -16,8 +16,37 @@ cobbler的dhcp分配ip,交换机提供中继，这样是否就可以在客户端
 systemctl start tftp
 
 4) 记得关闭firewalld服务
+systemctl stop firewalld
+systemctl disable firewalld
+firewall-cmd --list-all
 
-5）如果当中有交换机的，需要让网络管理员(这个网络一般不归运维管)放通69端口，允许通过该端口的流量
+Output：
+FirewallD is not running
+
+5)
+cat centos79.ks
+auth  --useshadow  --enablemd5
+bootloader --location=mbr
+clearpart --all --initlabel
+text
+firewall --disabled
+firstboot --disable
+keyboard us
+lang en_US
+url --url=$tree
+$yum_repo_stanza
+$SNIPPET('network_config')
+reboot
+rootpw --iscrypted $default_password_crypted
+selinux --disabled
+skipx
+timezone  Asia/shanghai
+install
+zerombr
+part biosboot --size 1 --fstype=biosboot
+part /boot --fstype=ext4 --size=1000
+part /boot/efi --fstype=efi --size=1000
+part / --fstype=ext4 --grow --size=1
 
 2、
 
