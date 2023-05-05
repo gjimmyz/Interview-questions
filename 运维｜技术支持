@@ -234,8 +234,13 @@ HTTP协议建立在TCP协议基础之上。TCP协议主要负责数据传输的�
 继承和接口都是实现代码重用的有效方式，但在不同的情况下使用。如果您需要在不同的类之间共享代码和状态，可以使用继承。
 如果您需要定义一组规范和约束，以确保类实现了必要的方法，可以使用接口。
 
-36、
-
+36、Docker的生命周期主要由以下几个部分组成?
+1）构建（Build）docker build
+2）发布（Publish）docker push到仓库
+3）运行（Run）docker run
+4）停止（Stop）docker stop
+5）删除（Remove）docker rm或docker rmi
+6）更新（Update）docker pull
 
 37、
 
